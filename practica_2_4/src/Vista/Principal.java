@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import controlador.GestionDato;
+
 /**
  *
  * @author Estudiante
@@ -16,6 +18,9 @@ public class Principal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        GestionDato gD=new GestionDato();
+        VentanaPrincipal vP= new VentanaPrincipal(gD);
+        vP.setVisible(true);
     }
     
 }
