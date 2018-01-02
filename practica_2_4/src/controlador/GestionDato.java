@@ -109,7 +109,7 @@ public class GestionDato {
 
     }
 
-    public boolean insertPVuelo(Vuelo v) {
+    public boolean insertVuelo(Vuelo v) {
 
         boolean retorno = false;
 
@@ -125,12 +125,16 @@ public class GestionDato {
         return retorno;
 
     }
+
     public List<Avion> leerAvion() {
-        List<Avion> retorno=null;        
+        List<Avion> retorno = null;
         EntityManager em = this.emf.createEntityManager();
-        retorno=em.createQuery("SELECT a FROM Auto a ORDER BY a.id").getResultList();        
+        retorno = em.createQuery("SELECT a FROM Avion a ORDER BY a.id").getResultList();
         em.close();
         return retorno;
     }
+
+    
+
 
 }

@@ -32,8 +32,6 @@ public class ProgramaVuelo implements Serializable{
 
     public ProgramaVuelo() {
     }
-
-    
     public int getIdVuelo() {
         return IdVuelo;
     }

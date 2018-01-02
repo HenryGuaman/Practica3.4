@@ -16,10 +16,31 @@ import javax.persistence.Id;
 @Entity
 public class Avion implements Serializable{
     @Id
+    private int id;
     private String modelo; 
     private String compania;
     private int capacidad;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Avion(int id, String modelo, String compania, int capacidad) {
+        this.id = id;
+        this.modelo = modelo;
+        this.compania = compania;
+        this.capacidad = capacidad;
+    }
+
+   
+
+   
+
+    
     public Avion(String modelo, String compania, int capacidad) {
         this.modelo = modelo;
         this.compania = compania;
@@ -28,8 +49,6 @@ public class Avion implements Serializable{
 
     public Avion() {
     }
-
-    
     public String getModelo() {
         return modelo;
     }
@@ -56,8 +75,10 @@ public class Avion implements Serializable{
 
     @Override
     public String toString() {
-        return "Avion{" + "modelo=" + modelo + ", compania=" + compania + ", capacidad=" + capacidad + '}';
+        return "Avion{" + "id=" + id + ", modelo=" + modelo + ", compania=" + compania + ", capacidad=" + capacidad + '}';
     }
+
+    
 
     
     

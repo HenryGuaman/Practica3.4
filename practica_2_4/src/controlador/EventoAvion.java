@@ -28,17 +28,18 @@ public class EventoAvion implements ActionListener {
 
         if (e.getSource().equals(this.vAvion.getBotonList().get(0))) {
             try {
-                String modelo = this.vAvion.getTxtList().get(0).getText();
-                String compania = this.vAvion.getTxtList().get(1).getText();
-                int capacidad = Integer.parseInt(this.vAvion.getTxtList().get(2).getText());
-                Avion av = new Avion(modelo, compania, capacidad);
-                this.vAvion.getgD().leerAvion();
-                Object[][] datostock = this.vAvion.cargarDatosTabla(this.vAvion.getgD().leerAvion().size(), 3);
-                this.vAvion.setDatos(datostock);
-                this.vAvion.getModeloTabla().setDataVector(this.vStock.getDatos(), this.vStock.getEncabezado());
-                this.vAvion.getgD().guardarArchivoStock();
-
+                int iD = Integer.parseInt(this.vAvion.getTxtList().get(0).getText());
+                String modelo = this.vAvion.getTxtList().get(1).getText();
+                String compania = this.vAvion.getTxtList().get(2).getText();
+                int capacidad = Integer.parseInt(this.vAvion.getTxtList().get(3).getText());
+                Avion av = new Avion(iD, modelo, compania, capacidad);
                 this.vAvion.getgD().insertAvion(av);
+                this.vAvion.getgD().leerAvion();
+                Object[][] datosAvion = this.vAvion.cargaDatosTabla(this.vAvion.getgD().leerAvion().size(), 4);
+                this.vAvion.setDatos(datosAvion);
+                this.vAvion.getModeloTabla().setDataVector(this.vAvion.getDatos(), this.vAvion.getEncabezado());
+
+                
             } catch (NumberFormatException nfe) {
                 JOptionPane.showMessageDialog(vAvion, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
             } catch (NullPointerException npe) {
