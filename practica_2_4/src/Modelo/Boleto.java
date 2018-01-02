@@ -30,6 +30,10 @@ public class Boleto implements Serializable{
         this.avion = avion;
     }
 
+    public Boleto() {
+    }
+    
+
     public int getNumero() {
         return numero;
     }

@@ -30,6 +30,10 @@ public class Vuelo implements Serializable  {
         this.numPasajeros = numPasajeros;
     }
 
+    public Vuelo() {
+    }
+    
+
     public int getNumVuelo() {
         return numVuelo;
     }

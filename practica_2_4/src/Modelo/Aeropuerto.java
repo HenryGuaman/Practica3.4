@@ -27,6 +27,10 @@ public class Aeropuerto implements Serializable{
         this.pais = pais;
     }
 
+    public Aeropuerto() {
+    }
+    
+
     public String getNombre() {
         return nombre;
     }

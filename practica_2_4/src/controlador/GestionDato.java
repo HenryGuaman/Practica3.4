@@ -10,6 +10,8 @@ import Modelo.Avion;
 import Modelo.Boleto;
 import Modelo.Pasajero;
 import Modelo.ProgramaVuelo;
+import Modelo.Vuelo;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -105,6 +107,30 @@ public class GestionDato {
         }
         return retorno;
 
+    }
+
+    public boolean insertPVuelo(Vuelo v) {
+
+        boolean retorno = false;
+
+        try {
+            EntityManager em = emf.createEntityManager();
+            em.getTransaction().begin();
+            em.persist(v);
+            em.getTransaction().commit();
+            retorno = true;
+        } catch (Exception e) {
+            System.err.println("Error");
+        }
+        return retorno;
+
+    }
+    public List<Avion> leerAvion() {
+        List<Avion> retorno=null;        
+        EntityManager em = this.emf.createEntityManager();
+        retorno=em.createQuery("SELECT a FROM Auto a ORDER BY a.id").getResultList();        
+        em.close();
+        return retorno;
     }
 
 }

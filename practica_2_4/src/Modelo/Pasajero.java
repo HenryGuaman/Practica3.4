@@ -28,6 +28,10 @@ public class Pasajero implements Serializable{
         this.nacionalidad = nacionalidad;
     }
 
+    public Pasajero() {
+    }
+    
+
     public String getNombreYAp() {
         return nombreYAp;
     }
