@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,6 +27,10 @@ public class Aeropuerto implements Serializable{
         this.ciudad = ciudad;
         this.pais = pais;
     }
+
+    public Aeropuerto() {
+    }
+    
 
     public String getNombre() {
         return nombre;

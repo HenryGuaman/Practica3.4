@@ -30,6 +30,10 @@ public class ProgramaVuelo implements Serializable{
         this.horario = horario;
     }
 
+    public ProgramaVuelo() {
+    }
+    
+
     public int getIdVuelo() {
         return IdVuelo;
     }

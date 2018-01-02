@@ -10,6 +10,7 @@ import Modelo.Avion;
 import Modelo.Boleto;
 import Modelo.Pasajero;
 import Modelo.ProgramaVuelo;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -19,7 +20,8 @@ import javax.persistence.Persistence;
  * @author Eduardo
  */
 public class GestionDato {
-
+    
+    private List<Avion> listAvion;
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("practica_2_4PU");
 
     public boolean insertAeropuerto(Aeropuerto a) {
@@ -105,6 +107,14 @@ public class GestionDato {
         }
         return retorno;
 
+    }
+
+    public List<Avion> getListAvion() {
+        return listAvion;
+    }
+
+    public void setListAvion(List<Avion> listAvion) {
+        this.listAvion = listAvion;
     }
 
 }

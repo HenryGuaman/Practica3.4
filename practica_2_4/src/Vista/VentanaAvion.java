@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Modelo.Avion;
 import controlador.GestionDato;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +83,17 @@ public class VentanaAvion extends JInternalFrame {
 
         panel.add(this.scroll);
         this.add(panel);
+    }
+     public Object[][] cargaDatosTabla(int h, int w) {
+        Object[][] retorno = new Object[h][w];
+        int i = 0;
+        for (Avion p : this.gD.getListAvion()) {
+            retorno[i][0] = p.getCompania();
+            retorno[i][1] = p.getModelo();
+            retorno[i][2] = p.getCapacidad();
+            i++;
+        }
+        return retorno;
     }
 
     public List<JLabel> getEtiquetaList() {

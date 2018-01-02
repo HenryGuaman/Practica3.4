@@ -26,6 +26,10 @@ public class Avion implements Serializable{
         this.capacidad = capacidad;
     }
 
+    public Avion() {
+    }
+    
+
     public String getModelo() {
         return modelo;
     }
