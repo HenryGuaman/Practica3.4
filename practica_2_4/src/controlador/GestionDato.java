@@ -141,6 +141,7 @@ public class GestionDato {
         em.close();
         return retorno;
     }
+
     public List<Boleto> leerBoleto() {
         List<Boleto> retorno = null;
         EntityManager em = this.emf.createEntityManager();
@@ -148,6 +149,7 @@ public class GestionDato {
         em.close();
         return retorno;
     }
+
     public List<Pasajero> leerPasajero() {
         List<Pasajero> retorno = null;
         EntityManager em = this.emf.createEntityManager();
@@ -155,6 +157,7 @@ public class GestionDato {
         em.close();
         return retorno;
     }
+
     public List<ProgramaVuelo> leerProgramaVuelo() {
         List<ProgramaVuelo> retorno = null;
         EntityManager em = this.emf.createEntityManager();
@@ -162,6 +165,7 @@ public class GestionDato {
         em.close();
         return retorno;
     }
+
     public List<Vuelo> leerVuelo() {
         List<Vuelo> retorno = null;
         EntityManager em = this.emf.createEntityManager();
@@ -170,5 +174,28 @@ public class GestionDato {
         return retorno;
     }
 
+    public Vuelo buscarVuelo(String txt) {
+        Vuelo retorno = null;
+        int i = 0;
+        for (Vuelo v : this.leerVuelo()) {
+            if (v.getDestino().equals(txt)) {
+                i++;
+                return v;
+            }
+        }
+        return retorno;
+    }
+
+    public Aeropuerto buscarAeropuerto(String txt) {
+        Aeropuerto retorno = null;
+        int i = 0;
+        for (Aeropuerto ae : this.leerAeropuerto()) {
+            if (ae.getNombre().equals(txt)) {
+                i++;
+                return ae;
+            }
+        }
+        return retorno;
+    }
 
 }

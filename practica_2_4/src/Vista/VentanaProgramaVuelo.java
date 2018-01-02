@@ -5,6 +5,10 @@
  */
 package Vista;
 
+import Modelo.Aeropuerto;
+import Modelo.ProgramaVuelo;
+import Modelo.Vuelo;
+import controlador.EventoProgramaVuelo;
 import controlador.GestionDato;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,17 +61,17 @@ public class VentanaProgramaVuelo extends JInternalFrame {
         this.txtList.add(new JTextField(13));
         this.txtList.add(new JTextField(13));
 
-        this.combo1 = new JComboBox();
-        this.combo2 = new JComboBox();
+        this.combo1 = new JComboBox(this.CargaCombo());
+        this.combo2 = new JComboBox(this.CargaCombo2());
 
         JPanel panel = new JPanel();
         this.botonList = new ArrayList<JButton>();
         this.botonList.add(new JButton("Guardar"));
         this.botonList.add(new JButton("Nuevo"));
-        /*
-        this.botonList.get(0).addActionListener(new EventoProducto(this));
-        this.botonList.get(1).addActionListener(new EventoProducto(this));
-         */
+        
+        this.botonList.get(0).addActionListener(new EventoProgramaVuelo(this));
+        this.botonList.get(1).addActionListener(new EventoProgramaVuelo(this));
+        
         this.encabezado = new Object[5];
 
         this.encabezado[0] = "Id Vuelo";
@@ -99,28 +103,41 @@ public class VentanaProgramaVuelo extends JInternalFrame {
 
     }
 
-    /*
+    
     public Object[] CargaCombo() {
-       String[] retorno = new String[this.gD.getProveedorList().size()];
+       String[] retorno = new String[this.gD.leerVuelo().size()];
         int i = 0;
-        for (Proveedor p : this.gD.getProveedorList()) {
-            retorno[i] = p.getNombreYApellido();
+        for (Vuelo v : this.gD.leerVuelo()) {
+            retorno[i] = v.getDestino();
             i++;
         }
         return null;
     }
 
     public Object[] CargaCombo2() {
-        /*String[] retorno = new String[this.gD.getProductoList().size()];
+        String[] retorno = new String[this.gD.leerAeropuerto().size()];
         int i = 0;
-        for (Producto p : this.gD.getProductoList()) {
-            retorno[i] = p.getNombre();
+        for (Aeropuerto a : this.gD.leerAeropuerto()) {
+            retorno[i] = a.getNombre();
             i++;
         }
         return null;
     }
-     */
 
+    public Object[][] cargaDatosTabla(int h, int w) {
+        Object[][] retorno = new Object[h][w];
+        int i = 0;
+        for (ProgramaVuelo p : this.gD.leerProgramaVuelo()) {
+            retorno[i][0] = p.getIdVuelo();
+            retorno[i][1] = p.getVuelo().getDestino();
+            retorno[i][2] = p.getAeropuerto().getNombre();
+            retorno[i][3] = p.getNumEscala();
+            retorno[i][4] = p.getHorario();
+            i++;
+        }
+        return retorno;
+    }
+    
     public List<JLabel> getEtiquetaList() {
         return etiquetaList;
     }

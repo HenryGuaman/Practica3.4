@@ -7,6 +7,7 @@ package Vista;
 
 import Modelo.Avion;
 import Modelo.Pasajero;
+import controlador.EventoPasajero;
 import controlador.GestionDato;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,13 +46,14 @@ public class VentanaPasajero extends JInternalFrame {
 
     public void iniciacomponente() {
         this.etiquetaList = new ArrayList<JLabel>();
-
+        this.etiquetaList.add(new JLabel("Id"));
         this.etiquetaList.add(new JLabel("Nombre:"));
         this.etiquetaList.add(new JLabel("Cedula: "));
         this.etiquetaList.add(new JLabel("Telefono: "));
         this.etiquetaList.add(new JLabel("Nacionalidad: "));
 
         this.txtList = new ArrayList<JTextField>();
+        this.txtList.add(new JTextField(16));
         this.txtList.add(new JTextField(16));
         this.txtList.add(new JTextField(16));
         this.txtList.add(new JTextField(13));
@@ -61,16 +63,17 @@ public class VentanaPasajero extends JInternalFrame {
         this.botonList = new ArrayList<JButton>();
         this.botonList.add(new JButton("Guardar"));
         this.botonList.add(new JButton("Nuevo"));
-        /*
-        this.botonList.get(0).addActionListener(new EventoProducto(this));
-        this.botonList.get(1).addActionListener(new EventoProducto(this));
-         */
-        this.encabezado = new Object[4];
+        
+        this.botonList.get(0).addActionListener(new EventoPasajero(this));
+        this.botonList.get(1).addActionListener(new EventoPasajero(this));
+        
+        this.encabezado = new Object[5];
 
-        this.encabezado[0] = "Nombre";
-        this.encabezado[1] = "Cedula";
-        this.encabezado[2] = "Telefono";
-        this.encabezado[3] = "Nacionalidad";
+        this.encabezado[0] = "Id";
+        this.encabezado[1] = "Nombre";
+        this.encabezado[2] = "Cedula";
+        this.encabezado[3] = "Telefono";
+        this.encabezado[4] = "Nacionalidad";
 
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);
         this.tabla = new JTable(this.modeloTabla);
@@ -84,7 +87,8 @@ public class VentanaPasajero extends JInternalFrame {
         panel.add(this.txtList.get(2));
         panel.add(this.etiquetaList.get(3));
         panel.add(this.txtList.get(3));
-
+        panel.add(this.etiquetaList.get(4));
+        panel.add(this.txtList.get(4));
         panel.add(botonList.get(0));
         panel.add(botonList.get(1));
 
@@ -92,19 +96,20 @@ public class VentanaPasajero extends JInternalFrame {
         this.add(panel);
     }
     
-   /*  public Object[][] cargaDatosTabla(int h, int w) {
+    public Object[][] cargaDatosTabla(int h, int w) {
         Object[][] retorno = new Object[h][w];
         int i = 0;
-        for (Pasajero p : this.gD.getListPasajero()) {
-            retorno[i][0] = p.getNombreYAp();
-            retorno[i][1] = p.getCedula();
-            retorno[i][2] = p.getTelefono();
-            retorno[i][3] = p.getNacionalidad();
+        for (Pasajero p : this.gD.leerPasajero()) {
+            retorno[i][0] = p.getId();
+            retorno[i][1] = p.getNombreYAp();
+            retorno[i][2] = p.getCedula();
+            retorno[i][3] = p.getTelefono();
+            retorno[i][4] = p.getNacionalidad();
             i++;
         }
         return retorno;
     }
-*/
+
 
     public List<JLabel> getEtiquetaList() {
         return etiquetaList;
