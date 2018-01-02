@@ -134,7 +134,41 @@ public class GestionDato {
         return retorno;
     }
 
-    
+    public List<Aeropuerto> leerAeropuerto() {
+        List<Aeropuerto> retorno = null;
+        EntityManager em = this.emf.createEntityManager();
+        retorno = em.createQuery("SELECT a FROM Aeropuerto a ORDER BY a.id").getResultList();
+        em.close();
+        return retorno;
+    }
+    public List<Boleto> leerBoleto() {
+        List<Boleto> retorno = null;
+        EntityManager em = this.emf.createEntityManager();
+        retorno = em.createQuery("SELECT a FROM Boleto a ORDER BY a.id").getResultList();
+        em.close();
+        return retorno;
+    }
+    public List<Pasajero> leerPasajero() {
+        List<Pasajero> retorno = null;
+        EntityManager em = this.emf.createEntityManager();
+        retorno = em.createQuery("SELECT a FROM Pasajero a ORDER BY a.id").getResultList();
+        em.close();
+        return retorno;
+    }
+    public List<ProgramaVuelo> leerProgramaVuelo() {
+        List<ProgramaVuelo> retorno = null;
+        EntityManager em = this.emf.createEntityManager();
+        retorno = em.createQuery("SELECT a FROM ProgramaVuelo a ORDER BY a.id").getResultList();
+        em.close();
+        return retorno;
+    }
+    public List<Vuelo> leerVuelo() {
+        List<Vuelo> retorno = null;
+        EntityManager em = this.emf.createEntityManager();
+        retorno = em.createQuery("SELECT a FROM Vuelo a ORDER BY a.id").getResultList();
+        em.close();
+        return retorno;
+    }
 
 
 }
