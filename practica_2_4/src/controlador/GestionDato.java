@@ -10,6 +10,7 @@ import Modelo.Avion;
 import Modelo.Boleto;
 import Modelo.Pasajero;
 import Modelo.ProgramaVuelo;
+import Modelo.Vuelo;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,8 +21,13 @@ import javax.persistence.Persistence;
  * @author Eduardo
  */
 public class GestionDato {
-    
+
     private List<Avion> listAvion;
+    private List<Aeropuerto> listAeropuerto;
+    private List<Boleto> listBoleto;
+    private List<Pasajero> listPasajero;
+    private List<ProgramaVuelo> listPV;
+    private List<Vuelo> listVuelo;
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("practica_2_4PU");
 
     public boolean insertAeropuerto(Aeropuerto a) {
@@ -116,5 +122,46 @@ public class GestionDato {
     public void setListAvion(List<Avion> listAvion) {
         this.listAvion = listAvion;
     }
+
+    public List<Aeropuerto> getListAeropuerto() {
+        return listAeropuerto;
+    }
+
+    public void setListAeropuerto(List<Aeropuerto> listAeropuerto) {
+        this.listAeropuerto = listAeropuerto;
+    }
+
+    public List<Boleto> getListBoleto() {
+        return listBoleto;
+    }
+
+    public void setListBoleto(List<Boleto> listBoleto) {
+        this.listBoleto = listBoleto;
+    }
+
+    public List<Pasajero> getListPasajero() {
+        return listPasajero;
+    }
+
+    public void setListPasajero(List<Pasajero> listPasajero) {
+        this.listPasajero = listPasajero;
+    }
+
+    public List<ProgramaVuelo> getListPV() {
+        return listPV;
+    }
+
+    public void setListPV(List<ProgramaVuelo> listPV) {
+        this.listPV = listPV;
+    }
+
+    public List<Vuelo> getListVuelo() {
+        return listVuelo;
+    }
+
+    public void setListVuelo(List<Vuelo> listVuelo) {
+        this.listVuelo = listVuelo;
+    }
+    
 
 }

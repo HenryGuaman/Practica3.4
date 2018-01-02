@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Modelo.Vuelo;
 import controlador.GestionDato;
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +96,19 @@ public class VentanaVuelo extends JInternalFrame {
         panel.add(this.scroll);
         this.add(panel);
 
+    }
+    public Object[][] cargaDatosTabla(int h, int w) {
+        Object[][] retorno = new Object[h][w];
+        int i = 0;
+        for (Vuelo p : this.gD.getListVuelo()) {
+            retorno[i][0] = p.getNumVuelo();
+            retorno[i][1] = p.getOrigen();
+            retorno[i][2] = p.getDestino();
+            retorno[i][3] = p.getFechaDePartida();
+            retorno[i][4] = p.getNumPasajeros();
+            i++;
+        }
+        return retorno;
     }
 
     public List<JLabel> getEtiquetaList() {

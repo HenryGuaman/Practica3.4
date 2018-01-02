@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import Modelo.Avion;
+import Modelo.Pasajero;
 import controlador.GestionDato;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,6 +90,19 @@ public class VentanaPasajero extends JInternalFrame {
 
         panel.add(this.scroll);
         this.add(panel);
+    }
+    
+     public Object[][] cargaDatosTabla(int h, int w) {
+        Object[][] retorno = new Object[h][w];
+        int i = 0;
+        for (Pasajero p : this.gD.getListPasajero()) {
+            retorno[i][0] = p.getNombreYAp();
+            retorno[i][1] = p.getCedula();
+            retorno[i][2] = p.getTelefono();
+            retorno[i][3] = p.getNacionalidad();
+            i++;
+        }
+        return retorno;
     }
 
     public List<JLabel> getEtiquetaList() {
