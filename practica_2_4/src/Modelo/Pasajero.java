@@ -13,24 +13,38 @@ import javax.persistence.Id;
  *
  * @author Estudiante
  */
-@Entity 
-public class Pasajero implements Serializable{
-    private String nombreYAp;
+@Entity
+public class Pasajero implements Serializable {
+
     @Id
+    private int id;
+    private String nombreYAp;
     private String cedula;
     private String telefono;
     private String nacionalidad;
 
-    public Pasajero(String nombreYAp, String cedula, String telefono, String nacionalidad) {
+    public Pasajero(int id, String nombreYAp, String cedula, String telefono, String nacionalidad) {
+        this.id = id;
         this.nombreYAp = nombreYAp;
         this.cedula = cedula;
         this.telefono = telefono;
         this.nacionalidad = nacionalidad;
     }
 
+   
+
     public Pasajero() {
     }
+
     
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNombreYAp() {
         return nombreYAp;
@@ -66,8 +80,8 @@ public class Pasajero implements Serializable{
 
     @Override
     public String toString() {
-        return "Pasajero{" + "nombreYAp=" + nombreYAp + ", cedula=" + cedula + ", telefono=" + telefono + ", nacionalidad=" + nacionalidad + '}';
+        return "Pasajero{" + "id=" + id + ", nombreYAp=" + nombreYAp + ", cedula=" + cedula + ", telefono=" + telefono + ", nacionalidad=" + nacionalidad + '}';
     }
 
-    
+   
 }

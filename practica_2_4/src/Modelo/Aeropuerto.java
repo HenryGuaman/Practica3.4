@@ -18,17 +18,29 @@ import javax.persistence.Id;
 @Entity
 public class Aeropuerto implements Serializable{
     @Id
+    private int id;
     private String nombre;
     private String ciudad;
     private String pais;
 
-    public Aeropuerto(String nombre, String ciudad, String pais) {
+    public Aeropuerto(int id, String nombre, String ciudad, String pais) {
+        this.id = id;
         this.nombre = nombre;
         this.ciudad = ciudad;
         this.pais = pais;
     }
 
+    
+
     public Aeropuerto() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 
@@ -58,8 +70,8 @@ public class Aeropuerto implements Serializable{
 
     @Override
     public String toString() {
-        return "Aeropuerto{" + "nombre=" + nombre + ", ciudad=" + ciudad + ", pais=" + pais + '}';
+        return "Aeropuerto{" + "id=" + id + ", nombre=" + nombre + ", ciudad=" + ciudad + ", pais=" + pais + '}';
     }
-    
+
     
 }
