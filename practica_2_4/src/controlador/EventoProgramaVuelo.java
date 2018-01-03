@@ -27,8 +27,9 @@ public class EventoProgramaVuelo implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(this.vPVuelo.getBotonList().get(0))) {
-            try {
+        try {
+            if (e.getSource().equals(this.vPVuelo.getBotonList().get(0))) {
+
                 int iD = Integer.parseInt(this.vPVuelo.getTxtList().get(0).getText());
                 int cmb1 = Integer.parseInt(this.vPVuelo.getCombo1().getSelectedItem().toString());
                 int cmb2 = Integer.parseInt(this.vPVuelo.getCombo2().getSelectedItem().toString());
@@ -42,12 +43,11 @@ public class EventoProgramaVuelo implements ActionListener {
                 Object[][] datoPVuelo = this.vPVuelo.cargaDatosTabla(this.vPVuelo.getgD().leerProgramaVuelo().size(), 5);
                 this.vPVuelo.setDatos(datoPVuelo);
                 this.vPVuelo.getModeloTabla().setDataVector(this.vPVuelo.getDatos(), this.vPVuelo.getEncabezado());
-            } catch (NumberFormatException nfe) {
-                JOptionPane.showMessageDialog(vPVuelo, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
-            } catch (NullPointerException npe) {
-                JOptionPane.showMessageDialog(vPVuelo, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
-
             }
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(vPVuelo, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
+        } catch (NullPointerException npe) {
+            JOptionPane.showMessageDialog(vPVuelo, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
         }
         if (e.getSource().equals(this.vPVuelo.getBotonList().get(1))) {
             this.vPVuelo.getTxtList().get(0).setText("");

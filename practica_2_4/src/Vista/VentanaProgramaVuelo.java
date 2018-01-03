@@ -129,8 +129,8 @@ public class VentanaProgramaVuelo extends JInternalFrame {
         int i = 0;
         for (ProgramaVuelo p : this.gD.leerProgramaVuelo()) {
             retorno[i][0] = p.getId();
-            retorno[i][1] = p.getVuelo().getId();
-            retorno[i][2] = p.getAeropuerto().getId();
+            retorno[i][1] = p.getVuelo();
+            retorno[i][2] = p.getAeropuerto();
             retorno[i][3] = p.getNumEscala();
             retorno[i][4] = p.getHorario();
             i++;

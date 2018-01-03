@@ -40,7 +40,7 @@ public class VentanaPrincipal extends JFrame {
         this.escritorio = new JDesktopPane();
         this.menuList = new ArrayList<JMenu>();
         this.menuList.add(new JMenu("Pasajero"));
-        this.menuList.add(new JMenu("Aueropuerto"));
+        this.menuList.add(new JMenu("Aeropuerto"));
         this.menuList.add(new JMenu("Avion"));
         this.menuList.add(new JMenu("Vuelo"));
         this.menuList.add(new JMenu("Programa de Vuelo"));

@@ -9,6 +9,7 @@ import Modelo.Avion;
 import Modelo.Boleto;
 import Modelo.Pasajero;
 import Modelo.Vuelo;
+import controlador.EventoBoleto;
 import controlador.GestionDato;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,10 +71,10 @@ public class VentanaBoleto extends JInternalFrame{
         this.botonList = new ArrayList<JButton>();
         this.botonList.add(new JButton("Guardar"));
         this.botonList.add(new JButton("Nuevo"));
-        /*
-        this.botonList.get(0).addActionListener(new EventoProducto(this));
-        this.botonList.get(1).addActionListener(new EventoProducto(this));
-         */
+        
+        this.botonList.get(0).addActionListener(new EventoBoleto(this));
+        this.botonList.get(1).addActionListener(new EventoBoleto(this));
+        
         this.encabezado = new Object[5];
 
         this.encabezado[0] = "Numero";

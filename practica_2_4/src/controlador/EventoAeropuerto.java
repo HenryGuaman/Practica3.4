@@ -25,8 +25,10 @@ public class EventoAeropuerto implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(this.vAeropuerto.getBotonList().get(0))) {
-            try {
+
+        try {
+            if (e.getSource().equals(this.vAeropuerto.getBotonList().get(0))) {
+
                 int iD = Integer.parseInt(this.vAeropuerto.getTxtList().get(0).getText());
                 String nombre = this.vAeropuerto.getTxtList().get(1).getText();
                 String ciudad = this.vAeropuerto.getTxtList().get(2).getText();
@@ -37,12 +39,12 @@ public class EventoAeropuerto implements ActionListener {
                 Object[][] datoAeropuerto = this.vAeropuerto.cargaDatosTabla(this.vAeropuerto.getgD().leerAeropuerto().size(), 4);
                 this.vAeropuerto.setDatos(datoAeropuerto);
                 this.vAeropuerto.getModeloTabla().setDataVector(this.vAeropuerto.getDatos(), this.vAeropuerto.getEncabezado());
-            } catch (NumberFormatException nfe) {
-                JOptionPane.showMessageDialog(vAeropuerto, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
-            } catch (NullPointerException npe) {
-                JOptionPane.showMessageDialog(vAeropuerto, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
-
             }
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(vAeropuerto, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
+        } catch (NullPointerException npe) {
+            JOptionPane.showMessageDialog(vAeropuerto, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
+
         }
         if (e.getSource().equals(this.vAeropuerto.getBotonList().get(1))) {
             this.vAeropuerto.getTxtList().get(0).setText("");

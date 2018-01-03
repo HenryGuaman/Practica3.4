@@ -174,95 +174,56 @@ public class GestionDato {
         return retorno;
     }
 
-    public Vuelo buscarVuelo(int txt) {
-        Vuelo retorno = null;
-        int i = 0;
-        for (Vuelo v : this.leerVuelo()) {
-            if (v.getId()== txt) {
-                i++;
-                return v;
-            }
-        }
-        return retorno;
-    }
-
-    public Aeropuerto buscarAeropuerto(int txt) {
-        Aeropuerto retorno = null;
-        int i = 0;
-        for (Aeropuerto ae : this.leerAeropuerto()) {
-            if (ae.getId() == txt) {
-                i++;
-                return ae;
-            }
-        }
-        return retorno;
-    }
     public Vuelo buscarVuelo2(int i) {
-        Vuelo retorno=null;        
+        Vuelo retorno = null;
         EntityManager em = this.emf.createEntityManager();
-        try
-        {
-            retorno=em.find(Vuelo.class, i);
-        }catch(Exception e1)
-        {
+        try {
+            retorno = em.find(Vuelo.class, i);
+        } catch (Exception e1) {
             e1.printStackTrace();
-        }
-        finally
-        {
+        } finally {
             em.close();
         }
         return retorno;
     }
 
     public Aeropuerto buscarAeropuerto2(int i) {
-        Aeropuerto retorno=null;        
+        Aeropuerto retorno = null;
         EntityManager em = this.emf.createEntityManager();
-        try
-        {
-            retorno=em.find(Aeropuerto.class, i);
-        }catch(Exception e1)
-        {
+        try {
+            retorno = em.find(Aeropuerto.class, i);
+        } catch (Exception e1) {
             e1.printStackTrace();
-        }
-        finally
-        {
+        } finally {
             em.close();
         }
         return retorno;
     }
-    
+
     public Pasajero buscarPasajero2(int i) {
-        Pasajero retorno=null;        
+        Pasajero retorno = null;
         EntityManager em = this.emf.createEntityManager();
-        try
-        {
-            retorno=em.find(Pasajero.class, i);
-        }catch(Exception e1)
-        {
+        try {
+            retorno = em.find(Pasajero.class, i);
+        } catch (Exception e1) {
             e1.printStackTrace();
-        }
-        finally
-        {
+        } finally {
             em.close();
         }
         return retorno;
     }
-    
+
     public Avion buscarAvion2(int i) {
-        Avion retorno=null;        
+        Avion retorno = null;
         EntityManager em = this.emf.createEntityManager();
-        try
-        {
-            retorno=em.find(Avion.class, i);
-        }catch(Exception e1)
-        {
+        try {
+            retorno = em.find(Avion.class, i);
+        } catch (Exception e1) {
             e1.printStackTrace();
-        }
-        finally
-        {
+        } finally {
             em.close();
         }
         return retorno;
     }
-    
+
 }

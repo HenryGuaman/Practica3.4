@@ -25,8 +25,9 @@ public class EventoVuelo implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(this.vVuelo.getBotonList().get(0))) {
-            try {
+        try {
+            if (e.getSource().equals(this.vVuelo.getBotonList().get(0))) {
+
                 int iD = Integer.parseInt(this.vVuelo.getTxtList().get(0).getText());
                 String origen = this.vVuelo.getTxtList().get(1).getText();
                 String destino = this.vVuelo.getTxtList().get(2).getText();
@@ -38,20 +39,19 @@ public class EventoVuelo implements ActionListener {
                 Object[][] datosVuelo = this.vVuelo.cargaDatosTabla(this.vVuelo.getgD().leerVuelo().size(), 5);
                 this.vVuelo.setDatos(datosVuelo);
                 this.vVuelo.getModeloTabla().setDataVector(this.vVuelo.getDatos(), this.vVuelo.getEncabezado());
-            } catch (NumberFormatException nfe) {
-                JOptionPane.showMessageDialog(vVuelo, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
-            } catch (NullPointerException npe) {
-                JOptionPane.showMessageDialog(vVuelo, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
-
             }
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(vVuelo, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
+        } catch (NullPointerException npe) {
+            JOptionPane.showMessageDialog(vVuelo, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
         }
-        if(e.getSource().equals(this.vVuelo.getBotonList().get(1))){
+        if (e.getSource().equals(this.vVuelo.getBotonList().get(1))) {
             this.vVuelo.getTxtList().get(0).setText("");
             this.vVuelo.getTxtList().get(1).setText("");
             this.vVuelo.getTxtList().get(2).setText("");
             this.vVuelo.getTxtList().get(3).setText("");
             this.vVuelo.getTxtList().get(4).setText("");
-            
+
         }
     }
 
