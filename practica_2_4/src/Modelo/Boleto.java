@@ -16,31 +16,35 @@ import javax.persistence.Id;
 @Entity
 public class Boleto implements Serializable{
    @Id
-    private int numero;
+    private int id;
     private Pasajero pasajero;
     private Vuelo vuelo;
     private String clase;
     private Avion avion;
 
-    public Boleto(int numero, Pasajero pasajero, Vuelo vuelo, String clase, Avion avion) {
-        this.numero = numero;
+    public Boleto(int id, Pasajero pasajero, Vuelo vuelo, String clase, Avion avion) {
+        this.id = id;
         this.pasajero = pasajero;
         this.vuelo = vuelo;
         this.clase = clase;
         this.avion = avion;
     }
 
+    
+
     public Boleto() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
+    
 
     public Pasajero getPasajero() {
         return pasajero;
@@ -76,8 +80,9 @@ public class Boleto implements Serializable{
 
     @Override
     public String toString() {
-        return "Boleto{" + "numero=" + numero + ", pasajero=" + pasajero + ", vuelo=" + vuelo + ", clase=" + clase + ", avion=" + avion + '}';
+        return "Boleto{" + "id=" + id + ", pasajero=" + pasajero + ", vuelo=" + vuelo + ", clase=" + clase + ", avion=" + avion + '}';
     }
 
+    
    
 }

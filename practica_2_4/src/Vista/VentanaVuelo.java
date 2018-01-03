@@ -6,6 +6,7 @@
 package Vista;
 
 import Modelo.Vuelo;
+import controlador.EventoVuelo;
 import controlador.GestionDato;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,10 +62,10 @@ public class VentanaVuelo extends JInternalFrame {
         this.botonList = new ArrayList<JButton>();
         this.botonList.add(new JButton("Guardar"));
         this.botonList.add(new JButton("Nuevo"));
-        /*
-        this.botonList.get(0).addActionListener(new EventoProducto(this));
-        this.botonList.get(1).addActionListener(new EventoProducto(this));
-         */
+        
+        this.botonList.get(0).addActionListener(new EventoVuelo(this));
+        this.botonList.get(1).addActionListener(new EventoVuelo(this));
+         
         this.encabezado = new Object[5];
 
         this.encabezado[0] = "N° de Vuelo";

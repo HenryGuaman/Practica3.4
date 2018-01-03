@@ -16,29 +16,33 @@ import javax.persistence.Id;
 @Entity
 public class ProgramaVuelo implements Serializable{
     @Id
-    private int IdVuelo;
+    private int id;
     private Vuelo vuelo;
     private Aeropuerto aeropuerto;
     private int numEscala;
     private String horario;
 
-    public ProgramaVuelo(int IdVuelo, Vuelo vuelo, Aeropuerto aeropuerto, int numEscala, String horario) {
-        this.IdVuelo = IdVuelo;
+    public ProgramaVuelo(int id, Vuelo vuelo, Aeropuerto aeropuerto, int numEscala, String horario) {
+        this.id = id;
         this.vuelo = vuelo;
         this.aeropuerto = aeropuerto;
         this.numEscala = numEscala;
         this.horario = horario;
     }
 
+    
+
     public ProgramaVuelo() {
     }
-    public int getIdVuelo() {
-        return IdVuelo;
+
+    public int getId() {
+        return id;
     }
 
-    public void setIdVuelo(int IdVuelo) {
-        this.IdVuelo = IdVuelo;
+    public void setId(int id) {
+        this.id = id;
     }
+   
 
     public Vuelo getVuelo() {
         return vuelo;
@@ -74,8 +78,10 @@ public class ProgramaVuelo implements Serializable{
 
     @Override
     public String toString() {
-        return "ProgramaVuelo{" + "IdVuelo=" + IdVuelo + ", vuelo=" + vuelo + ", aeropuerto=" + aeropuerto + ", numEscala=" + numEscala + ", horario=" + horario + '}';
+        return "ProgramaVuelo{" + "id=" + id + ", vuelo=" + vuelo + ", aeropuerto=" + aeropuerto + ", numEscala=" + numEscala + ", horario=" + horario + '}';
     }
+
+    
 
     
     
