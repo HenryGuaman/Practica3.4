@@ -39,7 +39,7 @@ public class VentanaPasajero extends JInternalFrame {
 
     public VentanaPasajero(GestionDato gD) {
         super("Datos del Pasajero", true, true, true, true);
-        this.setSize(500, 500);
+        this.setSize(700, 600);
         this.gD = gD;
         this.iniciacomponente();
     }
