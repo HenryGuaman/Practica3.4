@@ -62,9 +62,9 @@ public class VentanaBoleto extends JInternalFrame{
         this.txtList.add(new JTextField(4));
         this.txtList.add(new JTextField(13));
 
-        this.combo1 = new JComboBox();
-        this.combo2 = new JComboBox();
-        this.combo3 = new JComboBox();
+        this.combo1 =this.CargaCombo();
+        this.combo2 = this.CargaCombo2();
+        this.combo3 = this.CargaCombo3();
         
 
         JPanel panel = new JPanel();
@@ -107,35 +107,31 @@ public class VentanaBoleto extends JInternalFrame{
     }
 
     
-    public Object[] CargaCombo() {
-       int[] retorno = new int[this.gD.leerPasajero().size()];
-        int i = 0;
-        for (Pasajero p : this.gD.leerPasajero()) {
-            retorno[i] = p.getId();
-            i++;
+    
+    public JComboBox CargaCombo() {
+        JComboBox retorno = new JComboBox();
+        for (Pasajero a : this.gD.leerPasajero()) {
+            retorno.addItem(a.getId());
         }
-        return null;
+        return retorno;
+    }
+    public JComboBox CargaCombo2() {
+        JComboBox retorno = new JComboBox();
+        for (Vuelo a : this.gD.leerVuelo()) {
+            retorno.addItem(a.getId());
+        }
+        return retorno;
     }
 
-    public Object[] CargaCombo2() {
-       int[] retorno = new int[this.gD.leerVuelo().size()];
-        int i = 0;
-        for (Vuelo v : this.gD.leerVuelo()) {
-            retorno[i] = v.getId();
-            i++;
+   public JComboBox CargaCombo3() {
+        JComboBox retorno = new JComboBox();
+        for (Avion a : this.gD.leerAvion()) {
+            retorno.addItem(a.getId());
         }
-        return null;
+        return retorno;
     }
     
-     public Object[] CargaCombo3() {
-       int[] retorno = new int[this.gD.leerAvion().size()];
-        int i = 0;
-        for (Avion av : this.gD.leerAvion()) {
-            retorno[i] = av.getId();
-            i++;
-        }
-        return null;
-    }
+     
      
 
         public Object[][] cargaDatosTabla(int h, int w) {
@@ -143,10 +139,10 @@ public class VentanaBoleto extends JInternalFrame{
         int i = 0;
         for (Boleto b : this.gD.leerBoleto()) {
             retorno[i][0] = b.getId();
-            retorno[i][1] = b.getPasajero().getId();
-            retorno[i][2] = b.getVuelo().getId();
+            retorno[i][1] = b.getPasajero().getNombreYAp();
+            retorno[i][2] = b.getVuelo().getDestino();
             retorno[i][3] = b.getClase();
-            retorno[i][4] = b.getAvion().getId();
+            retorno[i][4] = b.getAvion();
             i++;
         }
         return retorno;
@@ -239,6 +235,14 @@ public class VentanaBoleto extends JInternalFrame{
     public void setgD(GestionDato gD) {
         this.gD = gD;
     }
+
+    public JComboBox getCombo3() {
+        return combo3;
+    }
+
+    public void setCombo3(JComboBox combo3) {
+        this.combo3 = combo3;
+    }
     
-    
+
 }

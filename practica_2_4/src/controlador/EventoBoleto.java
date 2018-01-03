@@ -35,7 +35,7 @@ public class EventoBoleto implements ActionListener {
                 int cmb1 = Integer.parseInt(this.vBoleto.getCombo1().getSelectedItem().toString());
                 int cmb2 = Integer.parseInt(this.vBoleto.getCombo2().getSelectedItem().toString());
                 String hor = this.vBoleto.getTxtList().get(1).getText();
-                int cmb3 = Integer.parseInt(this.vBoleto.getCombo2().getSelectedItem().toString());
+                int cmb3 = Integer.parseInt(this.vBoleto.getCombo3().getSelectedItem().toString());
 
                 Pasajero p1 = this.vBoleto.getgD().buscarPasajero2(cmb1);
                 Vuelo vl = this.vBoleto.getgD().buscarVuelo2(cmb2);
@@ -58,4 +58,5 @@ public class EventoBoleto implements ActionListener {
             this.vBoleto.getTxtList().get(1).setText("");
         }
     }
+
 }

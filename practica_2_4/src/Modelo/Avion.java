@@ -75,7 +75,7 @@ public class Avion implements Serializable{
 
     @Override
     public String toString() {
-        return "Avion{" + "id=" + id + ", modelo=" + modelo + ", compania=" + compania + ", capacidad=" + capacidad + '}';
+        return compania;
     }
 
     
