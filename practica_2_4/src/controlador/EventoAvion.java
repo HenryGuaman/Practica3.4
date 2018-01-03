@@ -39,7 +39,6 @@ public class EventoAvion implements ActionListener {
                 this.vAvion.setDatos(datosAvion);
                 this.vAvion.getModeloTabla().setDataVector(this.vAvion.getDatos(), this.vAvion.getEncabezado());
 
-                
             } catch (NumberFormatException nfe) {
                 JOptionPane.showMessageDialog(vAvion, "Todos los campos son necesarios ", "Error Registro", JOptionPane.ERROR_MESSAGE);
             } catch (NullPointerException npe) {
@@ -47,6 +46,12 @@ public class EventoAvion implements ActionListener {
 
             }
 
+        }
+        if (e.getSource().equals(this.vAvion.getBotonList().get(1))) {
+            this.vAvion.getTxtList().get(0).setText("");
+            this.vAvion.getTxtList().get(1).setText("");
+            this.vAvion.getTxtList().get(2).setText("");
+            this.vAvion.getTxtList().get(3).setText("");
         }
 
     }

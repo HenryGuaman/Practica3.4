@@ -98,11 +98,11 @@ public class VentanaVuelo extends JInternalFrame {
         this.add(panel);
 
     }
-   /* public Object[][] cargaDatosTabla(int h, int w) {
+   public Object[][] cargaDatosTabla(int h, int w) {
         Object[][] retorno = new Object[h][w];
         int i = 0;
-        for (Vuelo p : this.gD.getListVuelo()) {
-            retorno[i][0] = p.getNumVuelo();
+        for (Vuelo p : this.gD.leerVuelo()) {
+            retorno[i][0] = p.getId();
             retorno[i][1] = p.getOrigen();
             retorno[i][2] = p.getDestino();
             retorno[i][3] = p.getFechaDePartida();
@@ -110,7 +110,7 @@ public class VentanaVuelo extends JInternalFrame {
             i++;
         }
         return retorno;
-    }*/
+    }
 
     public List<JLabel> getEtiquetaList() {
         return etiquetaList;
