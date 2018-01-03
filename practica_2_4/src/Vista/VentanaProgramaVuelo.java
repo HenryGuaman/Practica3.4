@@ -105,9 +105,9 @@ public class VentanaProgramaVuelo extends JInternalFrame {
 
     
     public Object[] CargaCombo() {
-       String[] retorno = new String[this.getgD().leerVuelo().size()];
+       String[] retorno = new String[this.gD.leerVuelo().size()];
         int i = 0;
-        for (Vuelo v : this.getgD().leerVuelo()) {
+        for (Vuelo v : this.gD.leerVuelo()) {
             retorno[i] = v.getDestino();
             i++;
         }
@@ -115,9 +115,9 @@ public class VentanaProgramaVuelo extends JInternalFrame {
     }
 
     public Object[] CargaCombo2() {
-        String[] retorno = new String[this.getgD().leerAeropuerto().size()];
+        String[] retorno = new String[this.gD.leerAeropuerto().size()];
         int i = 0;
-        for (Aeropuerto a : this.getgD().leerAeropuerto()) {
+        for (Aeropuerto a : this.gD.leerAeropuerto()) {
             retorno[i] = a.getNombre();
             i++;
         }
@@ -127,7 +127,7 @@ public class VentanaProgramaVuelo extends JInternalFrame {
     public Object[][] cargaDatosTabla(int h, int w) {
         Object[][] retorno = new Object[h][w];
         int i = 0;
-        for (ProgramaVuelo p : this.getgD().leerProgramaVuelo()) {
+        for (ProgramaVuelo p : this.gD.leerProgramaVuelo()) {
             retorno[i][0] = p.getId();
             retorno[i][1] = p.getVuelo().getDestino();
             retorno[i][2] = p.getAeropuerto().getNombre();
