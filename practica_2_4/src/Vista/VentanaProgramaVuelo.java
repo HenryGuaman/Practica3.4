@@ -61,8 +61,8 @@ public class VentanaProgramaVuelo extends JInternalFrame {
         this.txtList.add(new JTextField(13));
         this.txtList.add(new JTextField(13));
 
-        this.combo1 = new JComboBox(this.CargaCombo());
-        this.combo2 = new JComboBox(this.CargaCombo2());
+        this.combo1 = new JComboBox();
+        this.combo2 = new JComboBox();
 
         JPanel panel = new JPanel();
         this.botonList = new ArrayList<JButton>();
@@ -105,20 +105,20 @@ public class VentanaProgramaVuelo extends JInternalFrame {
 
     
     public Object[] CargaCombo() {
-       String[] retorno = new String[this.gD.leerVuelo().size()];
+       int[] retorno = new int[this.gD.leerVuelo().size()];
         int i = 0;
         for (Vuelo v : this.gD.leerVuelo()) {
-            retorno[i] = v.getDestino();
+            retorno[i] = v.getId();
             i++;
         }
         return null;
     }
 
     public Object[] CargaCombo2() {
-        String[] retorno = new String[this.gD.leerAeropuerto().size()];
+        int[] retorno = new int[this.gD.leerAeropuerto().size()];
         int i = 0;
         for (Aeropuerto a : this.gD.leerAeropuerto()) {
-            retorno[i] = a.getNombre();
+            retorno[i] = a.getId();
             i++;
         }
         return null;
@@ -129,8 +129,8 @@ public class VentanaProgramaVuelo extends JInternalFrame {
         int i = 0;
         for (ProgramaVuelo p : this.gD.leerProgramaVuelo()) {
             retorno[i][0] = p.getId();
-            retorno[i][1] = p.getVuelo().getDestino();
-            retorno[i][2] = p.getAeropuerto().getNombre();
+            retorno[i][1] = p.getVuelo().getId();
+            retorno[i][2] = p.getAeropuerto().getId();
             retorno[i][3] = p.getNumEscala();
             retorno[i][4] = p.getHorario();
             i++;

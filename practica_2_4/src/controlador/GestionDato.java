@@ -174,11 +174,11 @@ public class GestionDato {
         return retorno;
     }
 
-    public Vuelo buscarVuelo(String txt) {
+    public Vuelo buscarVuelo(int txt) {
         Vuelo retorno = null;
         int i = 0;
         for (Vuelo v : this.leerVuelo()) {
-            if (v.getDestino().equals(txt)) {
+            if (v.getId()== txt) {
                 i++;
                 return v;
             }
@@ -186,11 +186,11 @@ public class GestionDato {
         return retorno;
     }
 
-    public Aeropuerto buscarAeropuerto(String txt) {
+    public Aeropuerto buscarAeropuerto(int txt) {
         Aeropuerto retorno = null;
         int i = 0;
         for (Aeropuerto ae : this.leerAeropuerto()) {
-            if (ae.getNombre().equals(txt)) {
+            if (ae.getId() == txt) {
                 i++;
                 return ae;
             }
@@ -214,4 +214,55 @@ public class GestionDato {
         return retorno;
     }
 
+    public Aeropuerto buscarAeropuerto2(int i) {
+        Aeropuerto retorno=null;        
+        EntityManager em = this.emf.createEntityManager();
+        try
+        {
+            retorno=em.find(Aeropuerto.class, i);
+        }catch(Exception e1)
+        {
+            e1.printStackTrace();
+        }
+        finally
+        {
+            em.close();
+        }
+        return retorno;
+    }
+    
+    public Pasajero buscarPasajero2(int i) {
+        Pasajero retorno=null;        
+        EntityManager em = this.emf.createEntityManager();
+        try
+        {
+            retorno=em.find(Pasajero.class, i);
+        }catch(Exception e1)
+        {
+            e1.printStackTrace();
+        }
+        finally
+        {
+            em.close();
+        }
+        return retorno;
+    }
+    
+    public Avion buscarAvion2(int i) {
+        Avion retorno=null;        
+        EntityManager em = this.emf.createEntityManager();
+        try
+        {
+            retorno=em.find(Avion.class, i);
+        }catch(Exception e1)
+        {
+            e1.printStackTrace();
+        }
+        finally
+        {
+            em.close();
+        }
+        return retorno;
+    }
+    
 }

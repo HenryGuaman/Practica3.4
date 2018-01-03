@@ -5,6 +5,10 @@
  */
 package Vista;
 
+import Modelo.Avion;
+import Modelo.Boleto;
+import Modelo.Pasajero;
+import Modelo.Vuelo;
 import controlador.GestionDato;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +80,7 @@ public class VentanaBoleto extends JInternalFrame{
         this.encabezado[1] = "Pasajero";
         this.encabezado[2] = "Vuelo";
         this.encabezado[3] = "Clase";
-        this.encabezado[4] = "Vion";
+        this.encabezado[4] = "Avion";
 
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);
         this.tabla = new JTable(this.modeloTabla);
@@ -101,28 +105,52 @@ public class VentanaBoleto extends JInternalFrame{
 
     }
 
-    /*
+    
     public Object[] CargaCombo() {
-       String[] retorno = new String[this.gD.getProveedorList().size()];
+       int[] retorno = new int[this.gD.leerPasajero().size()];
         int i = 0;
-        for (Proveedor p : this.gD.getProveedorList()) {
-            retorno[i] = p.getNombreYApellido();
+        for (Pasajero p : this.gD.leerPasajero()) {
+            retorno[i] = p.getId();
             i++;
         }
         return null;
     }
 
     public Object[] CargaCombo2() {
-        /*String[] retorno = new String[this.gD.getProductoList().size()];
+       int[] retorno = new int[this.gD.leerVuelo().size()];
         int i = 0;
-        for (Producto p : this.gD.getProductoList()) {
-            retorno[i] = p.getNombre();
+        for (Vuelo v : this.gD.leerVuelo()) {
+            retorno[i] = v.getId();
             i++;
         }
         return null;
     }
-     */
+    
+     public Object[] CargaCombo3() {
+       int[] retorno = new int[this.gD.leerAvion().size()];
+        int i = 0;
+        for (Avion av : this.gD.leerAvion()) {
+            retorno[i] = av.getId();
+            i++;
+        }
+        return null;
+    }
+     
 
+        public Object[][] cargaDatosTabla(int h, int w) {
+        Object[][] retorno = new Object[h][w];
+        int i = 0;
+        for (Boleto b : this.gD.leerBoleto()) {
+            retorno[i][0] = b.getId();
+            retorno[i][1] = b.getPasajero().getId();
+            retorno[i][2] = b.getVuelo().getId();
+            retorno[i][3] = b.getClase();
+            retorno[i][4] = b.getAvion().getId();
+            i++;
+        }
+        return retorno;
+    }
+    
     public List<JLabel> getEtiquetaList() {
         return etiquetaList;
     }
