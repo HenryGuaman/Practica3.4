@@ -21,19 +21,15 @@ public class Lista<Object> {
 
         return true;
     }
-
     public Object recuperarElemento(int id) {
         Object res = elementoList.get(id);
         System.out.println(res);
         return res;
     }
-
     public boolean eliminarElemento(Object ob) {
-
         for (int i = 0; i < elementoList.size(); i++) {
-            
             if (elementoList.get(i).equals(ob)) {
-                System.out.println("si se cumple");
+                System.out.println("Elemento Eliminado");
                 elementoList.remove(i);
                 return true;
             } else {
@@ -42,12 +38,9 @@ public class Lista<Object> {
                     return false;
                 }
             }
-
         }
         return false;
-
     }
-
     public void imprimir() {
         int c = elementoList.size();
         for (int i = 0; i < c; i++) {
