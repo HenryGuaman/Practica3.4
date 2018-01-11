@@ -6,7 +6,7 @@
 package Controlador;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,9 +14,9 @@ import java.util.List;
  *
  * @author SVAIO
  */
-public class Diccionario< Integer, Object> {
+public class Diccionario<K, E> {
 
-    HashMap<Integer, Object> elemento = new HashMap<Integer, Object>();
+    Hashtable<Integer, Object> elemento = new Hashtable<Integer, Object>();
     ArrayList<Object> lista = new ArrayList<Object>();
 
     public boolean agregarElemento(Integer clave, Object valor) {
@@ -33,11 +33,10 @@ public class Diccionario< Integer, Object> {
         return re;
     }
 
-    public List<Object> recuperarElementos() {
-        List<Object> ret = null;
-        ret = this.lista;
-        System.out.println(ret);
-        return ret;
+    public List<E> recuperarElementos(List<E> lista) {
+        ArrayList<E> lis= new ArrayList<E>();
+        lis.addAll(lista);
+        return lis;
     }
 
     public boolean eliminarElemento(Integer clave) {
